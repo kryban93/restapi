@@ -3,9 +3,8 @@ package com.example.restapi.controller;
 import com.example.restapi.dto.BookDto;
 import com.example.restapi.model.BookEntity;
 import com.example.restapi.service.BookService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +30,10 @@ public class BookControler {
     @GetMapping("/books/{id}")
     public BookEntity getBook(@PathVariable long id) {
         return bookService.getSingleBook(id);
+    }
+
+    @PostMapping("/books")
+    public ResponseEntity<BookEntity> createBook(@RequestBody BookEntity book) {
+        return bookService.createBook(book);
     }
 }

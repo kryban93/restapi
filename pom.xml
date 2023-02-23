@@ -56,12 +56,7 @@
 			<version>1.18.26</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.jetbrains</groupId>
-			<artifactId>annotations</artifactId>
-			<version>RELEASE</version>
-			<scope>compile</scope>
-		</dependency>
+
 
 		<!--		&lt;!&ndash; https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 &ndash;&gt;-->
 <!--		<dependency>-->

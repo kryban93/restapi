@@ -12,6 +12,7 @@ import java.util.List;
 @Entity(name="borrowers")
 public class BorrowerEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     private String lastname;
