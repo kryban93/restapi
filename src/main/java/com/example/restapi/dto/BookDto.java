@@ -3,10 +3,12 @@ package com.example.restapi.dto;
 import com.example.restapi.model.BookEntity;
 import lombok.Data;
 
+import java.util.UUID;
+
 @Data
 public class BookDto {
 
-    private long id;
+    private UUID id;
     private String title;
     private String isbn;
     private String author;

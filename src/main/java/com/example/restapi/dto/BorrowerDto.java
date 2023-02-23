@@ -3,9 +3,11 @@ package com.example.restapi.dto;
 import com.example.restapi.model.BorrowerEntity;
 import lombok.Data;
 
+import java.util.UUID;
+
 @Data
 public class BorrowerDto {
-    private long id;
+    private UUID id;
     private String name;
     private String lastname;
 
