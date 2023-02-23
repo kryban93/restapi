@@ -1,32 +1,42 @@
 package com.example.restapi.model;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity(name="books")
-public class Book {
-    @Id
+public class BookEntity {
+    @Id()
     private long id;
     private String title;
     private String isbn;
     private String author;
 
-    public Book(long id,String title,String isbn,String author) {
+    public BookEntity(long id, String title, String isbn, String author) {
         this.id = id;
         this.title = title;
         this.isbn = isbn;
         this.author = author;
     }
 
-    public Book() {}
+    public BookEntity() {}
 
+//    @OneToMany
+////    @JoinColumn(name="book_id")
+//    private List<Borrowers> borrowers;
     public String getTitle() {
         return title;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getIsbn() {
+        return isbn;
     }
 
     public String getAuthor() {
         return author;
     }
-
-
 }

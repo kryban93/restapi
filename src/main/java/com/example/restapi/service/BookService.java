@@ -1,6 +1,6 @@
 package com.example.restapi.service;
 
-import com.example.restapi.model.Book;
+import com.example.restapi.model.BookEntity;
 import com.example.restapi.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +14,11 @@ public class BookService {
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
-    public List<Book> getBooks() {
+    public List<BookEntity> getBooks() {
         return bookRepository.findAll();
     }
 
-    public Book getSingleBook(long id) {
+    public BookEntity getSingleBook(long id) {
         return bookRepository.findById(id)
                 .orElseThrow();
     }
