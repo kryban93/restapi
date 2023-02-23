@@ -1,5 +1,6 @@
 package com.example.restapi.controller;
 
+import com.example.restapi.dto.BookDto;
 import com.example.restapi.model.BookEntity;
 import com.example.restapi.service.BookService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ public class BookControler {
     }
 
     @GetMapping("/books")
-    public List<BookEntity> getBooks() {
+    public List<BookDto> getBooks() {
         return bookService.getBooks();
     }
 

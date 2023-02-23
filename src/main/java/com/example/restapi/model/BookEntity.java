@@ -3,7 +3,10 @@ package com.example.restapi.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Setter;
 
+
+@Setter
 @Entity(name="books")
 public class BookEntity {
     @Id()
@@ -21,9 +24,6 @@ public class BookEntity {
 
     public BookEntity() {}
 
-//    @OneToMany
-////    @JoinColumn(name="book_id")
-//    private List<Borrowers> borrowers;
     public String getTitle() {
         return title;
     }

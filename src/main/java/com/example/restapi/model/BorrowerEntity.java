@@ -2,9 +2,13 @@ package com.example.restapi.model;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
+@Getter
+@Setter
 @Entity(name="borrowers")
 public class BorrowerEntity {
     @Id
@@ -20,16 +24,4 @@ public class BorrowerEntity {
         this.name = name;
         this.lastname = lastname;
     }
-
-    public String getName () {
-        return name;
-    }
-
-    public String getLastname () {
-        return lastname;
-    }
-
-
-
-
 }

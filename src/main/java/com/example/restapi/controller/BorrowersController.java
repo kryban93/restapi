@@ -1,5 +1,6 @@
 package com.example.restapi.controller;
 
+import com.example.restapi.dto.BorrowerDto;
 import com.example.restapi.model.BorrowerEntity;
 import com.example.restapi.service.BorrowersService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ public class BorrowersController {
     }
 
     @GetMapping("/users")
-    public List<BorrowerEntity> getBorrowers() {
+    public List<BorrowerDto> getBorrowers() {
         return borrowersService.getBorrowers();
     }
 }
