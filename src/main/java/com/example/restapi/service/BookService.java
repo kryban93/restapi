@@ -31,7 +31,7 @@ public class BookService {
         return   bookRepository.findAll().stream().map(BookDto::new).collect(Collectors.toList());
     }
 
-    public BookEntity getSingleBook(long id) {
+    public BookEntity getSingleBook(UUID id) {
         return bookRepository.findById(id)
                 .orElseThrow();
     }

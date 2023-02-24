@@ -30,7 +30,7 @@ public class BookControler {
     }
 
     @GetMapping("/books/{id}")
-    public BookEntity getBook(@PathVariable("id") long id) {
+    public BookEntity getBook(@PathVariable("id") UUID id) {
         return bookService.getSingleBook(id);
     }
 
@@ -42,5 +42,10 @@ public class BookControler {
     @PutMapping("/books/{id}")
     public ResponseEntity<BookDto> updateBook(@RequestBody BookDto book) {
       return new ResponseEntity<>(bookService.updateBook(book), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/books/{id}")
+    public ResponseEntity<HttpStatus> deleteBook(@PathVariable UUID id) {
+        return bookService.deleteBook(id);
     }
 }

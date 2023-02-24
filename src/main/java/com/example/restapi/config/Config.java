@@ -11,6 +11,4 @@ public class Config {
 
     @Autowired
     private ObjectMapper objectMapper;
-
-
 }
