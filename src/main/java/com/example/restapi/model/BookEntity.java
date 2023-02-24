@@ -5,12 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.util.UUID;
 
 
 @Setter
+@Getter
 @Entity(name="books")
 public class BookEntity {
     @Id()
@@ -28,19 +30,4 @@ public class BookEntity {
 
     public BookEntity() {}
 
-    public String getTitle() {
-        return title;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
 }

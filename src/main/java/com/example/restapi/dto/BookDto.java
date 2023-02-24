@@ -1,11 +1,15 @@
 package com.example.restapi.dto;
 
 import com.example.restapi.model.BookEntity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookDto {
 
     private UUID id;
@@ -18,7 +22,8 @@ public class BookDto {
         this.id = book.getId();
         this.isbn = book.getIsbn();
         this.author = book.getAuthor();
-
     }
+
+
 
 }

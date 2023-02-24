@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,7 +20,7 @@ public class BorrowerEntity {
     private String lastname;
     @OneToMany()
     @JoinTable(name="borrows")
-    List<BookEntity> books;
+    List<BookEntity> books = new ArrayList<>();
 
     public void BorrowerEntity(String name, String lastname) {
         this.name = name;
