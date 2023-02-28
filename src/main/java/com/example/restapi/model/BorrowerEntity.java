@@ -26,8 +26,11 @@ public class BorrowerEntity {
     @JoinTable(name ="borrows")
     List<BookEntity> books = new ArrayList<>();
 
-    public void BorrowerEntity(String name, String lastname) {
+
+
+    public BorrowerEntity(String name, String lastname,List<BookEntity> books) {
         this.name = name;
         this.lastname = lastname;
+        this.books = books;
     }
 }

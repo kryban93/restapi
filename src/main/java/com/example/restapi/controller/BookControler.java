@@ -30,12 +30,12 @@ public class BookControler {
     }
 
     @GetMapping("/books/{id}")
-    public BookEntity getBook(@PathVariable("id") UUID id) {
+    public BookDto getBook(@PathVariable("id") UUID id) {
         return bookService.getSingleBook(id);
     }
 
     @PostMapping("/books")
-    public ResponseEntity<BookEntity> createBook(@RequestBody BookEntity book) {
+    public ResponseEntity<BookDto> createBook(@RequestBody BookEntity book) {
         return bookService.createBook(book);
     }
 

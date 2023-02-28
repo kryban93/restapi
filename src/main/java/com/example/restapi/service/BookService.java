@@ -31,15 +31,19 @@ public class BookService {
         return   bookRepository.findAll().stream().map(BookDto::new).collect(Collectors.toList());
     }
 
-    public BookEntity getSingleBook(UUID id) {
-        return bookRepository.findById(id)
-                .orElseThrow();
+    public BookDto getSingleBook(UUID id) {
+        Optional<BookEntity> bookEntityOptional = bookRepository.findById(id);
+        if (bookEntityOptional.isPresent()) {
+            BookEntity bookEntity = bookEntityOptional.get();
+            return new BookDto(bookEntity);
+        }
+        return null;
     }
 
-    public ResponseEntity<BookEntity> createBook(@RequestBody BookEntity book) {
+    public ResponseEntity<BookDto> createBook(@RequestBody BookEntity book) {
         try {
             BookEntity savedBook = bookRepository.save(new BookEntity(book.getTitle(),book.getIsbn(),book.getAuthor()));
-            return new ResponseEntity<>(savedBook, HttpStatus.CREATED);
+            return new ResponseEntity<>(new BookDto(savedBook), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
