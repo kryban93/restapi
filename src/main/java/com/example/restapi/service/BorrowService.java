@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -33,6 +36,23 @@ public class BorrowService {
 
             List<BookEntity> userBooks = borrowerEntity.getBooks();
             userBooks.add(bookEntity);
+            borrowerEntity.setBooks(userBooks);
+
+            return new BorrowerDto(borrowersRepository.save(borrowerEntity));
+        }
+        return null;
+    }
+
+    public BorrowerDto returnBook(Borrows borrows) {
+        Optional<BookEntity> bookOptional = bookRepository.findById(borrows.getBookid());
+        Optional<BorrowerEntity> borrowerOptional = borrowersRepository.findById(borrows.getBorrowerid());
+        if (bookOptional.isPresent() && borrowerOptional.isPresent()) {
+            BorrowerEntity borrowerEntity = borrowerOptional.get();
+            BookEntity bookEntity = bookOptional.get();
+            UUID bookid = bookEntity.getId();
+
+            Predicate<BookEntity> byId = book -> book.getId() != bookid;
+            List<BookEntity> userBooks = borrowerEntity.getBooks().stream().filter(byId).collect(Collectors.toList());
             borrowerEntity.setBooks(userBooks);
 
             return new BorrowerDto(borrowersRepository.save(borrowerEntity));

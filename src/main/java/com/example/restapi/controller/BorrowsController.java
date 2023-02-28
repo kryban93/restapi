@@ -22,4 +22,9 @@ public class BorrowsController {
     public BorrowerDto borrowBook(@RequestBody Borrows borrows) {
         return borrowService.borrowBook(borrows);
     }
+
+    @PutMapping("/return")
+    public BorrowerDto returnBook(@RequestBody Borrows borrows) {
+        return borrowService.returnBook(borrows);
+    }
 }
